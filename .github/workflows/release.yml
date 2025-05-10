@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'v*'  # 当推送带v前缀的标签时触发，例如v1.0.0
+      - 'v*'
 
 jobs:
   build-and-release:
@@ -52,21 +52,3 @@ jobs:
           files: manyacg-wallpaper-windows.zip
           body: |
             # ManyACG Wallpaper ${{ steps.get_tag.outputs.TAG_NAME }}
-            
-            自动从API获取壁纸并设置为Windows桌面背景的工具。
-            
-            ## 功能
-            
-            - 每日自动更换壁纸
-            - 开机自启动
-            - 自动清理旧壁纸
-            
-            ## 安装说明
-            
-            1. 下载并解压 `manyacg-wallpaper-windows.zip`
-            2. 运行 `wallpaper_changer.exe`
-            3. 程序将自动设置为开机启动
-            
-            ## 如何关闭自启动
-            
-            可以通过Windows任务管理器的"启动"选项卡或Windows设置中的"启动应用"来禁用。

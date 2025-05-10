@@ -84,10 +84,9 @@ fn get_config() -> Result<Config, Box<dyn std::error::Error>> {
         let config: Config = serde_json::from_str(&config_str)?;
         Ok(config)
     } else {
-        // 默认配置
         let default_config = Config {
             download_dir: format!("{}/wallpapers", config_dir),
-            change_interval_mins: 60, // 默认每小时更换一次壁纸
+            change_interval_mins: 60*24,
         };
 
         let config_json = serde_json::to_string_pretty(&default_config)?;
