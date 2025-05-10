@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build-and-release:
     name: Build and Release for Windows
@@ -44,12 +47,8 @@ jobs:
       
       - name: Create GitHub Release
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: manyacg-wallpaper ${{ steps.get_version.outputs.VERSION }}
-          draft: false
-          prerelease: false
           files: manyacg-wallpaper-windows-amd64.zip
           generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
